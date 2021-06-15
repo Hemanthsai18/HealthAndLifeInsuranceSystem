@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" id="html1">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/calculator.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index"><span>Global Insurance</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index"><img src="{% static 'img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index">Home</a></li>
+          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="health">Health Insurances</a></li>
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li> -->
+              <li><a href="life">Life Insurances</a></li>
+            </ul>
+          </li>
+          <li><a href="portfolio">Portfolio</a></li>
+          <li><a href="calculator">Calculator</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="services">Services</a></li>
+          
+          <li><a href="team">Team</a></li>
+          <li><a href="contact">Contact Us</a></li>
+          
+          {% if user.is_authenticated %}
+            <li><a href="profile2">Hello {{user.username}}</a></li>
+            <li><a href="logout">Logout</a></li>
+          {% else %}
+            <li><a href="register">Register</a></li>
+            <li><a href="login">LogIn</a></li>
+            {% endif %}
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+    
+  
+  
+  <div class="container">
+        <header id="header1">Car Insurance Calculator</header>
+        <ul>
+          <li><form id="sex"><legend>Sex</legend> <fieldset>
+          <input type="radio" name="sex" value="20" id="Female" class="firstInput css-checkbox" />
+          <label class="css-label" for="Female">Female</label>
+             <input type="radio" name="sex" value="30" id="Male" class="css-checkbox" />
+             <label class="css-label" for="Male">Male</label></fieldset>
+              </form>
+              </li>
+          <li>
+          <form id="age"><legend>Age</legend><fieldset>
+            <input type="radio" id="sixteen" name="age" value="40" class="firstInput css-checkbox" />
+            <label class="css-label" for="sixteen">16-25</label>
+              <input id="twentysix" type="radio" name="age" value="30" class="css-checkbox" />
+              <label class="css-label" for="twentysix">26-34</label>
+                <input type="radio" id="thirtyfive" name="age" value="20" class="css-checkbox"  />
+                <label class="css-label" for="thirtyfive">35-50</label>
+                  <input type="radio" name="age" id="fifty" value="15" class="css-checkbox" />
+                  <label class="css-label" for="fifty">50+</label></fieldset>
+                  </form>
+                  </li>
+          <li>Car Color
+            <select name="color" id="car">
+              <option selected value="0"> -- select an option -- </option>
+              <option value="80">red</option>
+              <option value="50">silver</option>
+              <option value="50">black</option>
+              <option value="30">white</option>
+              <option value="50">other</option>
+            </select>
+          </li>
+          <li>Car Year
+            <select name="year" id="year">
+            <option selected value="0"> -- select an option -- </option>
+              <option value="60">2015+</option>
+              <option value="40">2000 - 2015</option>
+              <option value="60">1999 or before </option>
+            </select></li>
+            <li>Citations in past year
+              <select name="citations" id="citations">
+              <option selected value="0"> -- select an option -- </option>
+                <option value="20">1</option>
+                <option value="30">2</option>
+                <option value="40">3+</option>
+              </select>
+            </li>
+          </ul>
+          <hr>
+          <p class="total">Total:</p>
+        </div>
+        <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
